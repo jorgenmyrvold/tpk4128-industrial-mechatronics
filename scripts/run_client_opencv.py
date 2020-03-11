@@ -16,7 +16,7 @@ def main():
             break
 
         # Tip: img.dtype, img.shape
-        img = np.frombuffer(data, int).reshape(720, 1280, 3)
+        img = np.frombuffer(data, dtype=np.uint8).reshape(720, 1280, 3)
 
         cv2.imshow('img', img)
         if cv2.waitKey(20) == 27:  # Esc: 27
