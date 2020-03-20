@@ -6,17 +6,17 @@ import numpy as np
 
 def main():
 
-    client = SocketClient('localhost', 50007)
+    client = SocketClient('10.0.0.7', 50007)
     while True:
         client.sendall(b'Hello World!')
 
         # Tip: len(img.tostring())
-        size, data = client.recv(2764800)
+        size, data = client.recv(2764800)   # my macbook 2764800
         if not data:
             break
 
         # Tip: img.dtype, img.shape
-        img = np.frombuffer(data, dtype=np.uint8).reshape(720, 1280, 3)
+        img = np.frombuffer(data, dtype=np.uint8).reshape(720, 1280, 3)  # Dimentions 720, 1280, 3
 
         cv2.imshow('img', img)
         if cv2.waitKey(20) == 27:  # Esc: 27
